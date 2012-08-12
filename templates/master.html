@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Films On Stage {% block title %}{% endblock %}</title>
+    <link rel='stylesheet' href="/static/styles/bootstrap.css" />
+    <link rel='stylesheet' href="/static/styles/reset.css" />
+    <link rel='stylesheet' href="/static/styles/text.css" />
+    <link rel='stylesheet' href="/static/styles/960.css" />
+    <link rel='stylesheet' href="/static/styles/base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/ico" href="/favicon.ico" />
+</head>
+<body>
+<img id="bg" src="/static/img/background.jpeg" />
+<div id="outer" class="container_12">
+    <div id="banner">Films On Stage</div>
+    {% include "inc/top_nav.html" %}
+    <div class="grid_10" id="main-body">
+        {% block main-body %}{% endblock %}
+    </div>
+    <div class="grid_2">
+        {% include "inc/right_nav.html" %}
+    </div>
+    {% include "inc/footer.html" %}
+</div>
+<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-33576087-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+{% block js %}{% endblock %}
+</body>
+</html>

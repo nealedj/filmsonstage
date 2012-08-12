@@ -1,0 +1,81 @@
+a{
+    font-family: 'Ubuntu', Tahoma, sans-serif;
+}
+
+body, html{height: 100%;  margin: 0; padding: 0;}
+
+body{background-color: #0DA605;}
+
+div{z-index: 1}
+
+div#banner{
+    font-size: 32px;
+    font-weight: bolder;
+    margin-bottom: 10px;
+    border-top: 1px solid #ff1016;
+    background-color: #bf3030;
+    padding: 15px;
+}
+
+img#bg {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: -1;
+}
+
+div#outer{
+    margin-top: 5%;
+    background-color: #fff;
+    padding: 10px;
+}
+
+div#footer{
+    text-align: right;
+    border-top: 1px solid #ff1016;
+    border-bottom: 1px solid #ff1016;
+}
+
+div#main-body{
+    clear:left;
+    margin-top: 15px;
+}
+
+.nav{
+    border-top: 1px solid #ff1016;
+    border-bottom: 1px solid #ff1016;
+}
+
+.nav ul{
+    list-style-type: none;
+}
+
+.nav li{
+    margin: 0 10px;
+}
+
+.nav.top-nav li{
+    float:left;
+}
+
+.nav.right-nav ul{
+    margin-bottom: 0;
+}
+.tag{
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+blockquote{
+    border-top: 1px solid #ff1016;
+    border-bottom: 1px solid #ff1016;
+    margin-bottom: 10px;
+}
+div#blog-headers{
+    margin-bottom: 15px;
+}
+div.blog-header{
+    font-size: 14px;
+}
