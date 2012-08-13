@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^about/$', TemplateView.as_view(template_name="about.html"),  name="about"),
 
     url(r'^4u-fishguard/$', TemplateView.as_view(template_name="cinemas/fishguard.html"), name="4u-fishguard"),
+    url(r'^royal-st-ives/$', TemplateView.as_view(template_name="cinemas/st-ives.html"), name="royal-st-ives"),
     # Example:
     # (r'^cinema_blog/', include('cinema_blog.foo.urls')),
 

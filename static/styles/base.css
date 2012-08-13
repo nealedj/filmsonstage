@@ -52,17 +52,19 @@ div#main-body{
     list-style-type: none;
 }
 
-.nav li{
+.nav.top-nav li{
+    float:left;
     margin: 0 10px;
 }
 
-.nav.top-nav li{
-    float:left;
+.nav.right-nav li{
+    margin: 8px 10px;
 }
 
 .nav.right-nav ul{
     margin-bottom: 0;
 }
+
 .tag{
     font-size: 14px;
     font-style: italic;
