@@ -8,13 +8,16 @@
 
     <h2>Recent entries</h2>
 
-    <div class="grid_10" id="blog-headers">
-        <div class="blog-header">
-            13th August 2012: <a href="{% url royal-st-ives %}">The Royal Cinema, St. Ives</a>
-        </div>
-        <div class="blog-header">
-            22nd July 2012: <a href="{% url 4u-fishguard %}">4U at Theatr Gwaun, Fishguard</a>
-        </div>
-    </div>
+    <ol class="grid_10" id="blog-headers">
+        {% for node in nodes.by_date_desc %}
+            <a href="{{ node.href }}" class="blog-header">
+                <li>
+                    <img src="{{ node.thumbnail }}" alt="Image of {{ node.title }}" class="thumbnail" />
+                    {{ node.datestamp|date }}:<br />
+                    {{ node.title }}
+                </li>
+            </a>
+        {% endfor %}
+    </ol>
 
 {% endblock %}

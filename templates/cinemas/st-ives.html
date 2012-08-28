@@ -1,42 +1,34 @@
 {% extends 'master.html' %}
+{% load drinkstatic_tags %}
 
-{% block title %}- The Royal Cinema, St. Ives{% endblock %}
+{% datestamp 2012-07-22 %}
+
+{% block title %}- {% titletext %}The Royal Cinema, St. Ives{% endtitletext %}{% endblock %}
 {% block main-body %}
     <h1>The Royal Cinema, St. Ives</h1>
-    <div class="grid_4 alpha">
+    <div class="grid_10 alpha blog-post">
         <p>
             Although we try to maintain our primary affinity with truly independant cinemas we're happy to lend a platform to smaller cinema
             chains so long as they feel quirky enough to us. The Royal is such a cinema. It is owned by
             <a href="http://www.merlincinemas.co.uk/">Merlin cinemas</a> which have 11 cinemas
             dotted mostly around Devon and Cornwall.
+            <img src="{% thumbnail /static/img/cinemas/stives_1.jpg %}" alt="Exterior of cinema" class="pull-right"/>
         </p>
         <p>
             Our first impression of the cinema was mixed. From the outside it looks to need renovation. However, this could easily have been
             a humble facade for a cinema bursting with character...
         </p>
-    </div>
-    <div class="grid_6 omega">
-        <img src="/static/img/cinemas/stives_1.jpg" alt="Exterior of cinema"/>
-    </div>
-    <div class="grid_10 alpha">
-
         <p>
             We went to see The Dark Knight Rises, a film one might normally feel is best suited to a huge screen with a sound system to blow your
             hair back. I can't disagree but would argue that a more intimate cinema provides a slightly alternate appeal. The Royal is in a
             slightly awkward position. It isn't really all that small, it has three screens. The screen we were in had a similar capacity to a
             small screen in a multiplex. The actual screen did look slightly small in comparison to the hall so did rather diminish the immersion.
         </p>
-
-
-    </div>
-    <div class="grid_2 alpha">
-        <img src="/static/img/cinemas/stives_2.jpg" alt="Cinema ticket" />
-    </div>
-    <div class="grid_8 omega">
         <p>
-        The sound did have a few problems. My sister and her family had gone to this cinema earlier that day and found that the
-        sound was far too quiet. I was concerned that this might affect Batman. We actually found that the sound was a reasonable volume apart
-        from during louder segments, when the sound clipped and was limited to a volume making speech indistinguishable.
+            The sound did have a few problems. My sister and her family had gone to this cinema earlier that day and found that the
+            sound was far too quiet. I was concerned that this might affect Batman. We actually found that the sound was a reasonable volume apart
+            from during louder segments, when the sound clipped and was limited to a volume making speech indistinguishable.
+            <img src="/static/img/cinemas/stives_2.jpg" alt="Cinema ticket" class="pull-left vertical" />
         </p>
         <p>
             If I'm honest, the experience might have been slightly tarnished by the fact that I spilled my entire pack of Revels on the floor
@@ -50,14 +42,14 @@
             Merlin cinemas play host to the <a href="http://www.penwithfilmsociety.co.uk/">Penwith Film Society</a> in the Royal on Wednesdays for
             slightly more alternative films.
         </p>
-    </div>
-    <div class="grid_10 alpha">
         <p>
             The cinema does have a cafe but we didn't have chance to try this.
         </p>
         <p>
             In conclusion, I liked the Royal but it felt like it lacked the character I enjoy. The experience was mixed to position overall.
         </p>
+    </div>
+    <div class="address">
         <address>
             <strong>
                 Royal Cinema,</strong> <br />

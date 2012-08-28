@@ -1,5 +1,6 @@
 # Django settings for cinema_blog project.
 import os
+from cinema_blog import views
 
 
 def cur_dir():
@@ -74,6 +75,7 @@ TEMPLATE_LOADERS = (
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
+    'drinkstatic.middleware.DrinkStaticMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -84,14 +86,26 @@ ROOT_URLCONF = 'cinema_blog.urls'
 
 TEMPLATE_DIRS = (os.path.join(cur_dir(), "../templates"),)
 
+DRINKSTATIC_TEMPLATE_DIRS = (os.path.join(cur_dir(), '../templates/cinemas'),)
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'drinkstatic'
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
+
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'drinkstatic.context_processors.drinkstatic',
+)
+
+BLOG_URL = 'cinemas'
+
+NODE_GET_CONTEXT_DATA = views.node_get_context_data
