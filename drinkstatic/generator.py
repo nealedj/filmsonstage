@@ -24,6 +24,7 @@ def get_all_nodes():
                 nodes[node_obj.slug] = node_obj
             except Exception as e:
                 logging.error('could not render template %s: %s' % (filepath, e))
+                raise
             finally:
                 file.close()
 

@@ -5,8 +5,9 @@ from drinkstatic import views
 
 __author__ = 'davneale'
 
+blog_url = getattr(settings, 'BLOG_URL', '')
 
 urlpatterns = patterns('',
-    url(r'^%s/(?P<url_slug>[-\w\d]+)/$' % settings.BLOG_URL, views.get_node,  name="drinkstatic-node"),
+    url(r'^%s/(?P<url_slug>[-\w\d]+)/$' % blog_url, views.get_node,  name="drinkstatic-node"),
 
 )

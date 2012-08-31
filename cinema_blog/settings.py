@@ -2,10 +2,6 @@
 import os
 from cinema_blog import views
 
-
-def cur_dir():
-    return os.path.abspath(os.path.dirname(__file__))
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -84,9 +80,9 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'cinema_blog.urls'
 
-TEMPLATE_DIRS = (os.path.join(cur_dir(), "../templates"),)
+TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '../templates'),)
 
-DRINKSTATIC_TEMPLATE_DIRS = (os.path.join(cur_dir(), '../templates/cinemas'),)
+DRINKSTATIC_TEMPLATE_DIRS =(os.path.join(os.path.dirname(__file__), '../templates/cinemas'),)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -101,10 +97,9 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
 )
 
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'drinkstatic.context_processors.drinkstatic',
-)
+TEMPLATE_CONTEXT_PROCESSORS += ('drinkstatic.context_processors.drinkstatic',)
 
 BLOG_URL = 'cinemas'
 

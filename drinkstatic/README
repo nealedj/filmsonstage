@@ -1,0 +1,34 @@
+
+- drinkStatic
+
+drinkStatic is a minimalist static blog engine for Django inspired by the PHP eatStatic library.
+It's aimed at developers and designers to be as unobtrusive as possible.
+
+- Getting started
+
+Add the /drinkstatic directory to your Django application and add the application to its settings file:
+
+   INSTALLED_APPS = (
+       ...
+       'drinkstatic',
+   )
+
+Add the directory where your blog files will be kept to the settings file:
+
+    DRINKSTATIC_TEMPLATE_DIRS =(os.path.join(os.path.dirname(__file__), '../templates/cinemas'),)
+
+Add the url prefix (if any) that you'd like to use for your blog urls:
+
+    BLOG_URL = 'cinemas'
+
+Add 'drinkstatic.context_processors.drinkstatic' to TEMPLATE_CONTEXT_PROCESSORS:
+
+    TEMPLATE_CONTEXT_PROCESSORS = global_settings.TEMPLATE_CONTEXT_PROCESSORS + (
+        'drinkstatic.context_processors.drinkstatic',
+    )
+
+Load the drinkStatic tags in all of your blog files: {% load drinkstatic_tags %}
+
+Use the drinkStatic tags to define the blog. At a minimum, the blog should have a title:
+
+    {% titletext %}4U at Theatr Gwaun, Fishguard{% endtitletext %}{
