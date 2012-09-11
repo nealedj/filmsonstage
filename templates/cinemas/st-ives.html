@@ -1,17 +1,21 @@
 {% extends 'master.html' %}
 {% load drinkstatic_tags %}
 
-{% datestamp 2012-07-22 %}
+{% datestamp 2012-08-13 False %}
+{% urlslug royal-st-ives False %}
 
 {% block title %}- {% titletext %}The Royal Cinema, St. Ives{% endtitletext %}{% endblock %}
+{% block meta-description %}A blog post about a visit to The Royal Cinema, St. Ives{% endblock %}
+
 {% block main-body %}
     <h1>The Royal Cinema, St. Ives</h1>
     <div class="grid_10 alpha blog-post">
-        <p>
+        <p>{% snippet %}
             Although we try to maintain our primary affinity with truly independant cinemas we're happy to lend a platform to smaller cinema
             chains so long as they feel quirky enough to us. The Royal is such a cinema. It is owned by
-            <a href="http://www.merlincinemas.co.uk/">Merlin cinemas</a> which have 11 cinemas
+            <a href="http://www.merlincinemas.co.uk/" target="_blank" rel="nofollow">Merlin cinemas</a> which have 11 cinemas
             dotted mostly around Devon and Cornwall.
+            {% endsnippet %}
             <img src="{% thumbnail /static/img/cinemas/stives_1.jpg %}" alt="Exterior of cinema" class="pull-right"/>
         </p>
         <p>
@@ -39,7 +43,7 @@
             that I'm not in another anonymous Cineworld.
         </p>
         <p>
-            Merlin cinemas play host to the <a href="http://www.penwithfilmsociety.co.uk/">Penwith Film Society</a> in the Royal on Wednesdays for
+            Merlin cinemas play host to the <a href="http://www.penwithfilmsociety.co.uk/" target="_blank" rel="nofollow">Penwith Film Society</a> in the Royal on Wednesdays for
             slightly more alternative films.
         </p>
         <p>
@@ -59,7 +63,7 @@
             01736 796 843
         </address>
         <address>
-            <strong><a href="http://www.merlincinemas.co.uk/cinema/5/st--ives-royal-cinema.html" target="_blank">http://www.merlincinemas.co.uk/cinema/5/st--ives-royal-cinema.html</a></strong>
+            <strong><a href="http://www.merlincinemas.co.uk/cinema/5/st--ives-royal-cinema.html" target="_blank" rel="nofollow">http://www.merlincinemas.co.uk/cinema/5/st--ives-royal-cinema.html</a></strong>
         </address>
     </div>
 {% endblock %}

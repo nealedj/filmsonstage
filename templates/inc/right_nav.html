@@ -1,7 +1,7 @@
 <div class="nav right-nav">
     <ul>
-        {% for node in nodes.list %}
-            <li><a href="{{ node.href }}">{{ node.title }}</a></li>
+        {% for node in nodes.by_date_desc %}
+            <li><a href="/{{ node.href }}">{{ node.title }}</a></li>
         {% endfor %}
     </ul>
 </div>

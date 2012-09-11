@@ -90,6 +90,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'cinema_blog',
     'drinkstatic'
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
@@ -102,5 +103,4 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 TEMPLATE_CONTEXT_PROCESSORS += ('drinkstatic.context_processors.drinkstatic',)
 
 BLOG_URL = 'cinemas'
-
-NODE_GET_CONTEXT_DATA = views.node_get_context_data
+DRINKSTATIC_MEMCACHE_TIME = 60

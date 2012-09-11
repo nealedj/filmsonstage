@@ -15,6 +15,9 @@ div#banner{
     border-top: 1px solid #ff1016;
     background-color: #bf3030;
     padding: 15px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 }
 
 img#bg {
@@ -27,9 +30,13 @@ img#bg {
 }
 
 div#outer{
-    margin-top: 5%;
+    margin-top: 1%;
     background-color: #fff;
     padding: 10px;
+    border: 1px solid #e2e2e2;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
 }
 
 div#footer{
@@ -75,25 +82,51 @@ blockquote{
     border-bottom: 1px solid #ff1016;
     margin-bottom: 10px;
 }
-#blog-headers{
-    margin-bottom: 15px;
+
+.blog-snippets .title{
+    font-size: 16px;
+    margin: 0;
+    float:left;
 }
-.blog-header{
+
+.blog-snippets .title a{
+    color: #333;
+}
+
+.blog-snippets p{
+    clear: left;
+}
+
+.blog-snippets li{
+    list-style: none;
+    padding: 10px 15px;
+    margin: 5px 0;
+    background-color: #f6f6f6;
+    border: 1px solid #e2e2e2;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+
+}
+
+.blog-snippets .blog-date{
+    float: right;
+    margin-top: 5px;
     font-size: 12px;
-    text-align: center;
-    width: 160px;
-    height: 170px;
-    padding: 1px 15px;
+}
+
+.blog-snippets .snippet{
+    width: 530px;
+    padding: 0 15px 0 10px;
+    border-right: 1px solid #e3e3e3;
     float: left;
 }
-.blog-header li{
-    list-style: none;
-    margin: 0;
+
+.blog-snippets .thumbnail{
+    float: right;
+    margin-right: 15px;
 }
-.blog-header:hover{
-    border: 1px solid #FF1016;
-    padding: 0 14px;
-}
+
 .blog-post img{
     width: 400px;
     margin: 10px 0;

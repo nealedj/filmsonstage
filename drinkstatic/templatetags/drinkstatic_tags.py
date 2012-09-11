@@ -70,3 +70,11 @@ def datestamp(parser, token):
 @register.tag
 def thumbnail(parser, token):
     return drinkstatic_tag(parser, token, node_types.THUMBNAIL)
+
+@register.tag
+def urlslug(parser, token):
+    return drinkstatic_tag(parser, token, node_types.URL_SLUG)
+
+@register.tag
+def snippet(parser, token):
+    return drinkstatic_block_tag(parser, token, node_types.SNIPPET, 'endsnippet')
