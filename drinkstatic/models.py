@@ -5,7 +5,7 @@ from google.appengine.ext import ndb
 __author__ = 'davneale'
 
 class Node(ndb.Model):
-    FIELDS = ["url_slug", "title", "datestamp", "thumbnail", "snippet"]
+    FIELDS = ["url_slug", "title", "datestamp", "thumbnail", "snippet", "archived"]
 
     slug = ndb.StringProperty()
     v_url_slug = ndb.StringProperty()
@@ -13,6 +13,7 @@ class Node(ndb.Model):
     v_datestamp = ndb.DateTimeProperty()
     v_thumbnail = ndb.StringProperty()
     v_snippet = ndb.TextProperty()
+    v_archived = ndb.BooleanProperty(default=False)
 
     def __init__(self, *args, **kwargs):
         dict = kwargs.pop('dict', None)
@@ -22,6 +23,23 @@ class Node(ndb.Model):
         if dict:
             # this initialiser should only be called for creation from dictionary
             self.update_from_dict(dict)
+
+    def __new__(cls, *args, **kwargs):
+        for field in cls.FIELDS:
+            if not hasattr(cls, "get_%s" % field) or not hasattr(cls, "set_%s" % field):
+                cls.add_property(field)
+
+        return super(Node, cls).__new__(cls, *args, **kwargs)
+
+    @classmethod
+    def add_property(cls, field):
+        field_var = "v_%s" % field
+        get_func = lambda self: getattr(self, field_var)
+        set_func = lambda self, val: setattr(self, field_var, val)
+
+        setattr(cls, field, property(get_func, set_func))
+
+
 
     def update_from_dict(self, dict):
         for k,v in dict.items():
@@ -51,18 +69,6 @@ class Node(ndb.Model):
         if not self.v_url_slug:
             self.slug = slugify(title)
     title = property(get_title, set_title)
-
-    def get_datestamp(self):return self.v_datestamp
-    def set_datestamp(self, datestamp):self.v_datestamp = datestamp
-    datestamp = property(get_datestamp, set_datestamp)
-
-    def get_thumbnail(self):return self.v_thumbnail
-    def set_thumbnail(self, thumbnail):self.v_thumbnail = thumbnail
-    thumbnail = property(get_thumbnail, set_thumbnail)
-
-    def get_snippet(self):return self.v_snippet
-    def set_snippet(self, snippet):self.v_snippet = snippet
-    snippet = property(get_snippet, set_snippet)
 
     @classmethod
     def get_by_slug(cls, slug):
@@ -102,3 +108,19 @@ class Template(ndb.Model):
     @classmethod
     def get_by_template_key(cls, key):
         return cls.query(cls.slug == key).get()
+
+class NodeGroup(ndb.Model):
+    class NodeGroupType:
+        choices = ['live','archived','all_nodes']
+
+    for choice in NodeGroupType.choices:
+        setattr(NodeGroupType, choice, choice)
+
+    date_key = ndb.DateProperty()
+    count = ndb.IntegerProperty(default=0)
+    nodes = ndb.StructuredProperty(Node, repeated=True)
+    group_type = ndb.StringProperty(choices=NodeGroupType.choices)
+
+    @classmethod
+    def get_by_date_key(cls, date_key, group_type):
+        return cls.query(cls.date_key == date_key, cls.group_type == group_type).get()

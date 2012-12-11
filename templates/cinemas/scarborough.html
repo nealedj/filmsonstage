@@ -1,0 +1,68 @@
+{% extends 'master.html' %}
+{% load drinkstatic_tags %}
+
+{% datestamp "2012-11-26" False %}
+{% urlslug "stephen-joseph-theatre" False %}
+
+{% block title %}- {% titletext %}Stephen Joseph Theatre, Scarborough{% endtitletext %}{% endblock %}
+{% block meta-description %}A blog post about a watching a movie at The Stephen Joseph Theatre, Scarborough{% endblock %}
+
+{% block main-body %}
+<h1>Stephen Joseph Theatre, Scarborough</h1>
+<div class="tag">We never expected Scarborough to have a world class theatre.</div>
+<div class="grid_10 alpha blog-post">
+    <p>{% snippet %}
+        We never expected Scarborough to have a world class theatre. This cinema epitomises the sort of place we like to stumble upon when
+        we travel around. And that is exactly what we did.
+    {% endsnippet %}
+        <img src="{% thumbnail "/static/img/cinemas/stephen_joseph_theatre_exterior.jpg" %}" alt="Exterior of cinema" class="pull-right"/>
+    </p>
+
+    <p>
+        We were on holiday in North Yorkshire in late November. If that fact alone wasn't going to fairly heavily restrict the normal activities
+        one might normally look to doing there we were also there during some very major flooding which prevented us from getting to
+        many of the areas we were hoping to visit. Scarborough was one of a number of places we arrived at whilst meandering around the county.
+    </p>
+
+    <p>
+        The theatre itself has a modest exterior - but no one really cares about that anyway. The interior is beautiful, as it should be, the
+        venue's primary purpose is as a theatre. It simply acts as a cinema part-time - you know, to pay the bills. The seating was comfortable
+        enough though left slightly wanting for leg room.
+    </p>
+
+    <p>
+        The seating arrangement is definitely a theatre arrangement rather than the usual you
+        would expect in a cinema. When you buy your ticket you'll be asked the briefly perplexing question "where would you like to sit?" whilst
+        being presented with a floorplan of the venue. We helpfully remembered a study which concluded that the best viewing experience can be
+        had watching anywhere with a direct vertical viewing angle and slightly to the right. In reality, we didn't care but they clearly did.
+    </p>
+
+    <p>
+        The presentation itself had the typical endearing sound sync / screen rotation problems at the start but they were sorted out in no time.
+        The sound was a little on the quiet side during quiet passages but luckily we were watching an action film and there weren't so many of
+        them.
+    </p>
+
+    <p>
+        Something we didn't realise that was offered but we wish we had done is a film supper. We always enjoy visiting Fellinis in Ambleside,
+        Cumbria to do this (I must blog on that one...). The film supper costs £14.50 which, from memory, is near the cost of a meal there so
+        I guess you could see your ticket as very cheap.
+    </p>
+
+    <p>
+        Any issues I've tried to pick out really are niggles. We thoroughly enjoyed our visit and it was an unexpected surprise for our trip.
+        The staff were very professional and friendly. We felt like we were being guided into a theatre rather than a cinema (the place was
+        racking up bonus points all the way to the screen).
+    </p>
+    <address>
+        <strong>Stephen Joseph Theatre</strong> <br />
+        Westborough, <br />
+        Scarborough <br />
+        YO11 1JW <br />
+        01723 370541
+    </address>
+    <address>
+        <strong><a href="http://www.sjt.uk.com/" target="_blank" rel="nofollow">http://www.sjt.uk.com/</a></strong>
+    </address>
+</div>
+{% endblock %}

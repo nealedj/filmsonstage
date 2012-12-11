@@ -1,8 +1,8 @@
 {% extends 'master.html' %}
 {% load drinkstatic_tags %}
 
-{% datestamp 2012-08-13 False %}
-{% urlslug royal-st-ives False %}
+{% datestamp "2012-08-13" False %}
+{% urlslug "royal-st-ives" False %}
 
 {% block title %}- {% titletext %}The Royal Cinema, St. Ives{% endtitletext %}{% endblock %}
 {% block meta-description %}A blog post about a visit to The Royal Cinema, St. Ives{% endblock %}
@@ -16,7 +16,7 @@
             <a href="http://www.merlincinemas.co.uk/" target="_blank" rel="nofollow">Merlin cinemas</a> which have 11 cinemas
             dotted mostly around Devon and Cornwall.
             {% endsnippet %}
-            <img src="{% thumbnail /static/img/cinemas/stives_1.jpg %}" alt="Exterior of cinema" class="pull-right"/>
+            <img src="{% thumbnail "/static/img/cinemas/stives_1.jpg" %}" alt="Exterior of cinema" class="pull-right"/>
         </p>
         <p>
             Our first impression of the cinema was mixed. From the outside it looks to need renovation. However, this could easily have been

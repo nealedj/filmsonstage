@@ -48,7 +48,7 @@ def drinkstatic_block_tag(parser, token, node_type, endblock_tag):
 
 def drinkstatic_tag(parser, token, node_type, parser_fn=None):
     token_ar = token.split_contents()
-    value = token_ar[1]
+    value = token_ar[1].replace('"', '').replace("'", "")
 
     render = True
     if len(token_ar) == 3:
@@ -78,3 +78,7 @@ def urlslug(parser, token):
 @register.tag
 def snippet(parser, token):
     return drinkstatic_block_tag(parser, token, node_types.SNIPPET, 'endsnippet')
+
+@register.tag
+def archived(parser, token):
+    return DrinkStaticNode(node_types.ARCHIVED, True, False)

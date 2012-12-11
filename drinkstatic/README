@@ -1,8 +1,12 @@
 
 - drinkStatic
 
-drinkStatic is a minimalist static blog engine for Django inspired by the PHP eatStatic library.
-It's aimed at developers and designers to be as unobtrusive as possible.
+drinkStatic is a minimalist static blog engine for Django on Google App Engine. It's aimed at developers and designers
+to be as unobtrusive as possible.
+
+The blog entries are defined in Django templates but decorated with tags to provide metadata to provide data to the
+rest of the site. drinkStatic only uses the datastore for storing generated entities so the content and structure of
+the site should be identical locally as when deployed.
 
 - Getting started
 
@@ -71,3 +75,7 @@ XML sitemap:
 
    drinkStatic generates a basic XML sitemap for the blog entries. This can be found in (settings.BLOG_URL)/sitemap.xml.
    You might want to add this to your robots.txt if you aren't generating your own sitemap.
+
+Archive:
+
+   To set an entry as archived then simply add {% archived %} to an entry.

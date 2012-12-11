@@ -1,8 +1,8 @@
 {% extends 'master.html' %}
 {% load drinkstatic_tags %}
 
-{% datestamp 2012-07-22 False %}
-{% urlslug 4u-fishguard False %}
+{% datestamp "2012-07-22" False %}
+{% urlslug "4u-fishguard" False %}
 
 {% block title %}- {% titletext %}4U at Theatr Gwaun, Fishguard{% endtitletext %}{% endblock %}
 {% block meta-description %}A blog post about a visit to Theatr Gwaun{% endblock %}
@@ -13,7 +13,7 @@
         <p>{% snippet %}Our visit to Fishguard was fairly unplanned. We simply decided to find a cinema during a persistently rainy holiday in Pembrokeshire.
             The only options near us were <a href="http://www.palacehaverfordwest.co.uk/" target="_blank" rel="nofollow">The Palace</a> in Haverfordwest and 4U in Fishguard.
             4U was showing <a href="http://www.imdb.com/title/tt1748122/" target="_blank" rel="nofollow">Moonrise Kingdom</a> and we thought it sounded fun.{% endsnippet %}
-            <img src="{% thumbnail /static/img/cinemas/4u_fishguard_1.jpg %}" class="pull-right" />
+            <img src="{% thumbnail "/static/img/cinemas/4u_fishguard_1.jpg" %}" class="pull-right" />
         </p>
 
         <p>

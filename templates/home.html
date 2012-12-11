@@ -11,7 +11,9 @@
     <ol class="grid_10 blog-snippets">
         {% for node in nodes.by_date_desc %}
             <li class="clearfix">
-                <h3 class="title"><a href="{{ node.href }}">{{ node.title }}</a></h3>
+                <h3 class="title">
+                    <a href="{{ node.href }}">{{ node.title }}<span class="link-mask"></span></a>
+                </h3>
                 <span class="blog-date">{{ node.datestamp|date }}</span>
                 <p class="snippet">
                     {{ node.snippet|safe }}
