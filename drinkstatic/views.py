@@ -28,16 +28,16 @@ class RedirectToHome(RedirectView):
 redirect_to_home = RedirectToHome.as_view()
 
 class SitemapXMLView(TemplateResponseMixin, View):
-    template = '<?xml version="1.0" encoding="UTF-8"?>'\
-                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'\
-                    '{% for node in nodes.list %}'\
-                        '<url>'\
-                            '<loc>{{ root_uri }}{{ blog_url }}/{{ node.slug }}</loc>'\
-                            '<priority>0.5</priority>'\
-                            '<lastmod>{{ node.datestamp|date:"Y-m-d" }}</lastmod>'\
-                        '</url>'\
-                    '{% endfor %}'\
-                '</urlset>'
+    template = """<?xml version="1.0" encoding="UTF-8"?>
+                <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+                    {% for node in nodes.list %}
+                        <url>
+                            <loc>{{ root_uri }}{{ blog_url }}/{{ node.slug }}</loc>
+                            <priority>0.5</priority>
+                            <lastmod>{{ node.datestamp|date:"Y-m-d" }}</lastmod>
+                        </url>
+                    {% endfor %}
+                </urlset>"""
 
     def get(self, *args, **kwargs):
         context = {
