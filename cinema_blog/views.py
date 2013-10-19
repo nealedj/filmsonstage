@@ -1,14 +1,27 @@
 from django.views.generic import TemplateView
+from django.views.decorators.cache import patch_cache_control
 
 __author__ = 'david'
 
+class CachedTemplate(TemplateView):
+    cache_timeout = 60
 
-class HomeView(TemplateView):
+    def get_cache_timeout(self):
+        return self.cache_timeout
+
+    def dispatch(self, *args, **kwargs):
+        response = super(CachedTemplate, self).dispatch(*args, **kwargs)
+        patch_cache_control(response, public=True, max_age=self.get_cache_timeout())
+        return response
+
+class HomeView(CachedTemplate):
     template_name = "home.html"
+home_view = HomeView.as_view()
 
 
-class AboutView(TemplateView):
+class AboutView(CachedTemplate):
     template_name = "about.html"
+about_view = AboutView.as_view()
 
 
 class SitemapXML(TemplateView):

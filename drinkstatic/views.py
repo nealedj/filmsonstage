@@ -1,6 +1,7 @@
 from django.http import Http404, HttpResponse
 from django.conf import settings
 from django.views.generic.base import TemplateView, RedirectView, View, TemplateResponseMixin
+from django.views.decorators.cache import cache_control
 from django.template import Template
 from django.template.context import Context
 from drinkstatic.response import DrinkStaticTemplateResponse
@@ -39,6 +40,7 @@ class SitemapXMLView(TemplateResponseMixin, View):
                     {% endfor %}
                 </urlset>"""
 
+    @cache_control(public=True, max_age=3600)
     def get(self, *args, **kwargs):
         context = {
             'root_uri' : self.request.build_absolute_uri('/'),

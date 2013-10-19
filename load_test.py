@@ -39,9 +39,9 @@ def threadproc():
     h = httplib2.Http(timeout=30)
     while not quitevent.is_set():
         for url in [
-            "http://localhost:8080/",
-            "http://localhost:8080/about/",
-            "http://localhost:8080/cinemas/stephen-joseph-theatre/",
+            "http://filmsonstage.robin-tech.co.uk/",
+            "http://filmsonstage.robin-tech.co.uk/about/",
+            "http://filmsonstage.robin-tech.co.uk/cinemas/stephen-joseph-theatre/",
         ]:
             try:
                 resp, content = h.request(url)
