@@ -1,6 +1,15 @@
-from django.views.generic import TemplateView, View
+from django.views.generic import TemplateView
 
 __author__ = 'david'
+
+
+class HomeView(TemplateView):
+    template_name = "home.html"
+
+
+class AboutView(TemplateView):
+    template_name = "about.html"
+
 
 class SitemapXML(TemplateView):
     template_name = 'sitemap.xml'
@@ -16,6 +25,7 @@ class SitemapXML(TemplateView):
             content_type = 'application/xml'
         )
 sitemap_xml_view = SitemapXML.as_view()
+
 
 class SitemapIndexXML(SitemapXML):
     template_name = 'sitemapindex.xml'
