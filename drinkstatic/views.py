@@ -10,7 +10,7 @@ __author__ = 'davneale'
 class NodeView(TemplateView):
 
     def get(self, request, url_slug=None, *args, **kwargs):
-        node = request.drinkstatic_nodes.get_by_slug(url_slug)
+        node = request.drinkstatic_node = request.drinkstatic_nodes.get_by_slug(url_slug)
 
         if not node: raise Http404
 

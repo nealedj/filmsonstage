@@ -1,29 +1,37 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Films On Stage {% block title %}{% endblock %}</title>
     <meta name="description" content="{% block meta-description %}{% endblock %}"/>
     <link rel='stylesheet' href="/static/styles/bootstrap.css" />
     <link rel='stylesheet' href="/static/styles/reset.css" />
     <link rel='stylesheet' href="/static/styles/text.css" />
-    <link rel='stylesheet' href="/static/styles/960.css" />
     <link rel='stylesheet' href="/static/styles/base.css" />
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/ico" href="/favicon.ico" />
 </head>
 <body>
-<img id="bg" src="/static/img/background.jpeg" />
-<div id="outer" class="container_12">
-    <div id="banner"><span id="clapperboard"></span>Films On Stage</div>
-    {% include "inc/top_nav.html" %}
-    <div class="grid_10" id="main-body">
+<div id="outer" class="container-fluid">
+    <div class="row-fluid" id="banner">
+        <span class="span12">
+            <span id="clapperboard"></span>
+            Films On Stage
+        </span>
+    </div>
+    <div class="row-fluid">
+        {% include "inc/top_nav.html" %}
+    </div>
+    <div class="row-fluid">
+        <div class="span10" id="main-body">
         {% block main-body %}{% endblock %}
+        </div>
+        <div class="span2">
+            {% include "inc/right_nav.html" %}
+        </div>
     </div>
-    <div class="grid_2">
-        {% include "inc/right_nav.html" %}
+    <div class="row-fluid" id="footer">
+        <a class="span11" href="http://www.robin-tech.co.uk" target="_blank">© 2012 Robin Tech Ltd</a>
     </div>
-    {% include "inc/footer.html" %}
 </div>
 <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script src="/static/js/bootstrap.js"></script>

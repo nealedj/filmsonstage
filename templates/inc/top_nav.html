@@ -1,6 +1,4 @@
-<div class="nav top-nav">
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="{% url about %}">About</a></li>
-    </ul>
-</div>
+<ul class="nav nav-pills">
+    <li{% if current_url == 'home'%} class="active"{% endif %}><a href="/">Home</a></li>
+    <li{% if current_url == 'about'%} class="active"{% endif %}><a href="{% url about %}">About</a></li>
+</ul>

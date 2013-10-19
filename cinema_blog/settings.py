@@ -100,7 +100,10 @@ INSTALLED_APPS = (
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 
-TEMPLATE_CONTEXT_PROCESSORS += ('drinkstatic.context_processors.drinkstatic',)
+TEMPLATE_CONTEXT_PROCESSORS += (
+    'drinkstatic.context_processors.drinkstatic',
+    'cinema_blog.context_processors.add_url_name',
+)
 
 BLOG_URL = 'cinemas'
 DRINKSTATIC_MEMCACHE_TIME = 60
