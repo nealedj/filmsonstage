@@ -28,10 +28,8 @@ class DrinkStaticNode(template.Node):
         return self.node
 
     def is_unique_on_page(self):
-        if self.node_type == node_types.TITLE_TEXT:
-            return True
+        return self.node_type == node_types.TITLE_TEXT
 
-        return False
 
 def drinkstatic_block_tag(parser, token, node_type, endblock_tag):
     try:
