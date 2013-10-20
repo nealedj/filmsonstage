@@ -7,6 +7,7 @@ __author__ = 'davneale'
 
 class DrinkStaticMiddleware(object):
     def process_request(self, request):
+        # key: (finalise, query)
         context_var_types = {
             'drinkstatic_nodes': (NodeList, lambda: Node.query().filter(Node.v_archived==False)),
             'drinkstatic_archived_nodes': (NodeList, lambda: Node.query().filter(Node.v_archived==True)),
