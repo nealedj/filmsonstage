@@ -16,13 +16,13 @@ class Node(ndb.Model):
     v_archived = ndb.BooleanProperty(default=False)
 
     def __init__(self, *args, **kwargs):
-        dict = kwargs.pop('dict', None)
+        d = kwargs.pop('dict', None)
 
         super(Node, self).__init__(*args, **kwargs)
 
-        if dict:
+        if d:
             # this initialiser should only be called for creation from dictionary
-            self.update_from_dict(dict)
+            self.update_from_dict(d)
 
     def __new__(cls, *args, **kwargs):
         for field in cls.FIELDS:
@@ -41,17 +41,17 @@ class Node(ndb.Model):
 
 
 
-    def update_from_dict(self, dict):
-        for k,v in dict.items():
+    def update_from_dict(self, d):
+        for k,v in d.items():
             field_name = k
             if field_name in self.FIELDS and hasattr(self, field_name):
                 setattr(self, field_name, v)
 
     def to_dict(self):
-        dict = {}
+        d = {}
         for field in self.FIELDS:
-            dict[field] = getattr(self, 'v_%s' % field)
-        return dict
+            d[field] = getattr(self, 'v_%s' % field)
+        return d
 
     @property
     def href(self):
