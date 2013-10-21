@@ -1,13 +1,12 @@
+from django.conf import settings
 from django.views.generic import TemplateView
 from django.views.decorators.cache import patch_cache_control
 
 __author__ = 'david'
 
 class CachedTemplate(TemplateView):
-    cache_timeout = 60
-
     def get_cache_timeout(self):
-        return self.cache_timeout
+        return settings.PUBLIC_CACHE_TIME
 
     def dispatch(self, *args, **kwargs):
         response = super(CachedTemplate, self).dispatch(*args, **kwargs)
