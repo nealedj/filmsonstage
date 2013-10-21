@@ -17,6 +17,7 @@ class DrinkStaticTemplateResponse(TemplateResponse):
             self, public=True,
             max_age=settings.PUBLIC_CACHE_TIME,
         )
+        self['Pragma'] = 'Public'
 
     def resolve_template(self, template):
         src = memcache.get(template)

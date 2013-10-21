@@ -55,7 +55,7 @@ class Node(ndb.Model):
 
     @property
     def href(self):
-        return '%s/%s' % (settings.BLOG_URL, self.slug)
+        return '%s/%s/' % (settings.BLOG_URL, self.slug)
 
     def get_url_slug(self):return self.v_url_slug
     def set_url_slug(self, url_slug):
