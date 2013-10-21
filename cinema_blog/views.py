@@ -11,7 +11,6 @@ class CachedTemplate(TemplateView):
     def dispatch(self, *args, **kwargs):
         response = super(CachedTemplate, self).dispatch(*args, **kwargs)
         patch_cache_control(response, public=True, max_age=self.get_cache_timeout())
-        response['Pragma'] = 'Public'
         return response
 
 class HomeView(CachedTemplate):
