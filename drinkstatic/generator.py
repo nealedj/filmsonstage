@@ -1,23 +1,28 @@
 import os
 import glob
+from PIL import Image
 from django.template.context import Context
 import logging
 from google.appengine.ext import ndb
 from drinkstatic.models import Node
 from drinkstatic.templatetags.drinkstatic_tags import DrinkStaticNode
 from drinkstatic.models import Template as DrinkStaticTemplate
+from google.appengine.api import files
 
 __author__ = 'davneale'
 
 from django.conf import settings
 from django.template import Template
 
+from google.appengine.api.urlfetch import fetch
+
 class BasicGenerator(object):
     """
     Gets templates from directories defined in settings.DRINKSTATIC_TEMPLATE_DIRS
     """
 
-    def __init__(self):
+    def __init__(self, request):
+        self.request = request
         self.template_dirs = getattr(settings, "DRINKSTATIC_TEMPLATE_DIRS")
         if not self.template_dirs:
             raise Exception('settings.DRINKSTATIC_TEMPLATE_DIRS was not defined or was emtpy')
@@ -68,6 +73,9 @@ class BasicGenerator(object):
                 finally:
                     file.close()
 
+        for node in nodes.values():
+            thumbnail_path = self.save_thumbnail_jpg(node.thumbnail)
+            node.thumbnail = thumbnail_path
 
         futures = self.save_templates_to_datastore(templates) + self.save_nodes_to_datastore(nodes)
 
@@ -90,3 +98,18 @@ class BasicGenerator(object):
             else:
                 pass
         return bits
+
+    def save_thumbnail_jpg(self, thumbnail_path):
+        url = self.request.build_absolute_uri(thumbnail_path)
+        img_response = fetch(url)
+        img = img_response.content
+
+        out_file = files.blobstore.create(mime_type='application/octet-stream')
+
+        img.thumbnail(settings.THUMBNAIL_WIDTH, Image.ANTIALIAS)
+
+        img.save(out_file, "JPEG")
+
+        files.finalize(out_file)
+
+        return files.blobstore.get_blob_key(out_file)

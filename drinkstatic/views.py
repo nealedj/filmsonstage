@@ -53,7 +53,7 @@ sitemap_xml = SitemapXMLView.as_view()
 
 def cron_generator(request):
     generator_class = settings.DRINKSTATIC_GENERATOR
-    generator = generator_class()
+    generator = generator_class(request)
     generator.generate_all_nodes()
 
     return HttpResponse('done')

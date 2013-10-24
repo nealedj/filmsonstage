@@ -81,7 +81,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'cinema_blog.urls'
 
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), '../templates'),)
-
+#DRINKSTATIC_IMAGE_DIRS = (os.path.join(os.path.dirname(__file__), '../static/img/cinemas'),)
 DRINKSTATIC_TEMPLATE_DIRS =(os.path.join(os.path.dirname(__file__), '../templates/cinemas'),)
 
 INSTALLED_APPS = (
